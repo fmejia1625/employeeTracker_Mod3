@@ -26,4 +26,5 @@ public class EmployeeController {
 
 
 //We create REST API here. The standard in RequestMapping is by declaring version No.
-//We will then inject employee repository within the EmployeeController class.
+//We will then inject employee repository within the EmployeeController class. The controller class is here.
+//essentially, the database URL and requests are made here. 

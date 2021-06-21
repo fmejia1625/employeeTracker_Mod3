@@ -14,4 +14,4 @@ public class ResourceNotFoundException extends RuntimeException{
     }
 }
 //API Will throw this exception to the client if it is not found. Here is the exception that will be thrown to the user
-//in case of error. 
+//in case of error.
