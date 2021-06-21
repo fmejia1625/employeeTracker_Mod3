@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table (name = "employees")
 public class Employee {
 //    This is the interface for employee located in the model package. Set private variables for ID, first and last name
-//    and for emailID. Be sure to generate Getters and Setters as well. The model models out the table in SQL. 
+//    and for emailID. Be sure to generate Getters and Setters as well. The model models out the table in SQL.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
