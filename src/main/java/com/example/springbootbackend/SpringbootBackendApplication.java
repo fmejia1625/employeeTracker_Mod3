@@ -11,4 +11,5 @@ public class SpringbootBackendApplication {
     }
 
 }
-//Imported SpringApplication framework and autoconfigure. 
+//Imported SpringApplication framework and autoconfigure.
+//Application will be run from here
