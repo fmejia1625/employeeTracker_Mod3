@@ -22,7 +22,7 @@ public class Employee {
     public Employee(){
 
     }
-//Super class is here. We are passing in the variables are parameters and using this keyword. 
+//Super class is here. We are passing in the variables are parameters and using this keyword.
     public Employee(String firstName, String lastName, String emailId) {
         super();
         this.firstName = firstName;

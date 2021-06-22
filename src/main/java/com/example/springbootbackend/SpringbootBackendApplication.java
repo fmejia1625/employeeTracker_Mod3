@@ -11,3 +11,4 @@ public class SpringbootBackendApplication {
     }
 
 }
+//Imported SpringApplication framework and autoconfigure. 
