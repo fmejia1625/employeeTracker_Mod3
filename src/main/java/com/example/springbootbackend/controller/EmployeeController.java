@@ -25,8 +25,9 @@ public class EmployeeController {
 //Create employee rest api here via the following method: will return Employee object, createEmployee will have Employee
 // object as a method argument, we call employeeRepository.save method and pass in employee.
 //    Add POST mapping annotation here to handle POST request
+//    Must also use @RequestBody annotation as well. used to map web requests to Spring Controller methods.
     @PostMapping("/employees")
-    public Employee createEmployee(Employee employee) {
+    public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
 }
