@@ -54,13 +54,14 @@ public class EmployeeController {
 //Copy and paste .orElseThrow from GET by ID,
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with ID :" + id));
+//        Add the following info to employee object. Note to self, make sure you are changing last name and email
         employee.setFirstName(employeeDetails.getFirstName());
-        employee.setFirstName(employeeDetails.getLastName());
-        employee.setFirstName(employeeDetails.getEmailId());
+        employee.setLastName(employeeDetails.getLastName());
+        employee.setEmailId(employeeDetails.getEmailId());
 //        send updated employee object to database using .save
         Employee updatedEmployee = employeeRepository.save(employee);
 //        Return this object to the client
-        return ResponseEntity.ok(updatedEmployee); 
+        return ResponseEntity.ok(updatedEmployee);
     }
 }
 
