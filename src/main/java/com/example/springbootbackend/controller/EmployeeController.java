@@ -3,10 +3,7 @@ package com.example.springbootbackend.controller;
 import com.example.springbootbackend.model.Employee;
 import com.example.springbootbackend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +24,8 @@ public class EmployeeController {
 
 //Create employee rest api here via the following method: will return Employee object, createEmployee will have Employee
 // object as a method argument, we call employeeRepository.save method and pass in employee.
+//    Add POST mapping annotation here to handle POST request
+    @PostMapping("/employees")
     public Employee createEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
