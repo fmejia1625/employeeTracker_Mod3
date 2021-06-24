@@ -37,13 +37,14 @@ public class EmployeeController {
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
 
 //.orElseThrow => if the record does not exist in the database, display (or throw) the ResourceNotFoundException
-// with a string message of employee does not exist. .orElseThrow uses lambda expressions (from W3 Schools: A lambda
-// expression is a short block of code which takes in parameters and returns a value. They are similar to methods,
-// except they do not need a name and can be implemented in the body of a method)
+// with a string message of employee does not exist. .orElseThrow uses lambda expressions because of functional
+// interfaces (from W3 Schools: A lambda expression is a short block of code which takes in parameters and returns a
+// value. They are similar to methods, except they do not need a name and can be implemented in the body of a method)
 
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with ID :" + id));
         return ResponseEntity.ok(employee);
+// We use ResponseEntity class so that we can return HTTP Status, .ok() will pass the employee in the body. 
     }
 }
 
