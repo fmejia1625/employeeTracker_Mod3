@@ -45,11 +45,22 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
 // We use ResponseEntity class so that we can return HTTP Status, .ok() will pass the employee in the body. 
     }
-//   To UPDATE employee REST API, first use ResponseEntity, then pass in id as argument along with object of Employee
-//    class. Use PutMapping annotation, configure REST endpoint URL
-    @PutMapping("/employees/{id}")
-    public ResponseEntity<Employee> updateEmployee(Long id, Employee employee) {
 
+//   To UPDATE employee REST API, first use ResponseEntity, then pass in id as argument along with object of Employee
+//    class. Use PutMapping annotation, configure REST endpoint URL. We also use @PathVariable and @RequestBody annotations
+//    before each argument.
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
+//Copy and paste .orElseThrow from GET by ID,
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with ID :" + id));
+        employee.setFirstName(employeeDetails.getFirstName());
+        employee.setFirstName(employeeDetails.getLastName());
+        employee.setFirstName(employeeDetails.getEmailId());
+//        send updated employee object to database using .save
+        Employee updatedEmployee = employeeRepository.save(employee);
+//        Return this object to the client
+        return ResponseEntity.ok(updatedEmployee); 
     }
 }
 
