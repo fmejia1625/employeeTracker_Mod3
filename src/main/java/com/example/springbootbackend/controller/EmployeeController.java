@@ -25,7 +25,11 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-//Create employee rest api here via the following method:     
+//Create employee rest api here via the following method: will return Employee object, createEmployee will have Employee
+// object as a method argument, we call employeeRepository.save method and pass in employee.
+    public Employee createEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
 }
 
 
