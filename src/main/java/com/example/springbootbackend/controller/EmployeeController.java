@@ -63,11 +63,11 @@ public class EmployeeController {
         Employee updatedEmployee = employeeRepository.save(employee);
 //        Return this object to the client
         return ResponseEntity.ok(updatedEmployee);
+    }
+    //     create DELETE employee REST API
+    @DeleteMapping("/employees/{id}")
+    public Map<String, Boolean> deleteEmployee(@PathVariable Long id) {
 
-//     create DELETE employee REST API
-    public Map<String, Boolean> deleteEmployee(Long id) {
-        
-        }
     }
 }
 
