@@ -32,7 +32,7 @@ public class EmployeeController {
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
-//    Creating REST API for get employee by ID. Pass in Long id (refer to Employee Model)
+//    Creating REST API for GET employee by ID. Pass in Long id (refer to Employee Model)
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
 
@@ -40,11 +40,16 @@ public class EmployeeController {
 // with a string message of employee does not exist. .orElseThrow uses lambda expressions because of functional
 // interfaces (from W3 Schools: A lambda expression is a short block of code which takes in parameters and returns a
 // value. They are similar to methods, except they do not need a name and can be implemented in the body of a method)
-
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with ID :" + id));
         return ResponseEntity.ok(employee);
 // We use ResponseEntity class so that we can return HTTP Status, .ok() will pass the employee in the body. 
+    }
+//   To UPDATE employee REST API, first use ResponseEntity, then pass in id as argument along with object of Employee
+//    class. Use PutMapping annotation, configure REST endpoint URL
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<Employee> updateEmployee(Long id, Employee employee) {
+
     }
 }
 
