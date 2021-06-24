@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000" )
 @RestController
@@ -62,6 +63,11 @@ public class EmployeeController {
         Employee updatedEmployee = employeeRepository.save(employee);
 //        Return this object to the client
         return ResponseEntity.ok(updatedEmployee);
+
+//     create DELETE employee REST API
+    public Map<String, Boolean> deleteEmployee(Long id) {
+        
+        }
     }
 }
 
