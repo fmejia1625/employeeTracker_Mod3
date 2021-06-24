@@ -30,6 +30,7 @@ public class EmployeeController {
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
+//    Creating REST API for get employee by ID
 }
 
 
