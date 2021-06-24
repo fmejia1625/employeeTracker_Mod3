@@ -31,8 +31,9 @@ public class EmployeeController {
         return employeeRepository.save(employee);
     }
 //    Creating REST API for get employee by ID. Pass in Long id (refer to Employee Model)
+    @GetMapping("/employees/{id}")
     public Employee getEmployeeById(Long id) {
-        
+
     }
 }
 
