@@ -1,5 +1,6 @@
 package com.example.springbootbackend.controller;
 
+import com.example.springbootbackend.exception.ResourceNotFoundException;
 import com.example.springbootbackend.model.Employee;
 import com.example.springbootbackend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,10 @@ public class EmployeeController {
     }
 //    Creating REST API for get employee by ID. Pass in Long id (refer to Employee Model)
     @GetMapping("/employees/{id}")
-    public Employee getEmployeeById(Long id) {
+    public Employee getEmployeeById(@PathVariable Long id) {
 
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with ID :" + id));
     }
 }
 
