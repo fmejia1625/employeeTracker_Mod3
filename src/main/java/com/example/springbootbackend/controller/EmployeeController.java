@@ -14,6 +14,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1/")
+
 public class EmployeeController {
 
     @Autowired
@@ -21,6 +22,7 @@ public class EmployeeController {
 
 //    Get all employees REST API. We will create a list and a method getAllEmployees and returning instance of employee
 //    repository using .findAll method from JPA repo.
+
     @GetMapping("/employees")
     public List<Employee> getAllEmployees(){
         return employeeRepository.findAll();
@@ -30,11 +32,13 @@ public class EmployeeController {
 // object as a method argument, we call employeeRepository.save method and pass in employee.
 //    Add POST mapping annotation here to handle POST request
 //    Must also use @RequestBody annotation as well. used to map web requests to Spring Controller methods.
+
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
 //    Creating REST API for GET employee by ID. Pass in Long id (refer to Employee Model)
+
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
 
@@ -51,6 +55,7 @@ public class EmployeeController {
 //   To UPDATE employee REST API, first use ResponseEntity, then pass in id as argument along with object of Employee
 //    class. Use PutMapping annotation, configure REST endpoint URL. We also use @PathVariable and @RequestBody annotations
 //    before each argument.
+
     @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
 //Copy and paste .orElseThrow from GET by ID,
@@ -66,6 +71,7 @@ public class EmployeeController {
         return ResponseEntity.ok(updatedEmployee);
     }
     //     create DELETE employee REST API
+
     @DeleteMapping("/employees/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {
         Employee employee = employeeRepository.findById(id)
