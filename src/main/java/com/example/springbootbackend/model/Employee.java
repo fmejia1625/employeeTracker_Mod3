@@ -3,6 +3,7 @@ package com.example.springbootbackend.model;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table (name = "employees")
 public class Employee {
